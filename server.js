@@ -16,6 +16,8 @@ app.listen(process.env.PORT, () =>
   )
 );
 
+
+//superbase
 import { createClient } from "@supabase/supabase-js";
 
 export default ({ app }, inject) => {
@@ -28,7 +30,7 @@ export default ({ app }, inject) => {
 
 // Get all articles
 
-app.get("/articles", async (_, response) => {
+app.get("/articles", async (request, response) => {
   try {
     const { data, error } = await supabase.from("posts").select();
     console.log(data);
